@@ -16,6 +16,27 @@ namespace AspnetNote.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Login(User model)
+        {
+            //ID, password need
+            if (ModelState.IsValid)
+            {
+                using (var db = new AspnetNoteDbContext())
+                {
+                    //Linq query - method chaining
+                    var user = db.Users
+                        .FirstOrDefault(u => u.UserId.Equals(model.UserId) && 
+                        u.UserPassword.Equals(model.UserPassword));
+                    if(user == null)
+                    {
+
+                    }
+                }
+            }
+            return View(model);
+        }
+
         [HttpGet]
         public IActionResult Register()
         {
