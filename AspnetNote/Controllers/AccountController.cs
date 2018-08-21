@@ -30,7 +30,7 @@ namespace AspnetNote.Controllers
                 using(var db = new AspnetNoteDbContext())
                 {
                     db.Users.Add(model);
-                    db.SaveChanges();
+                    db.SaveChanges(); // Commit
                 }
                 return RedirectToAction("Index", "Home");
             }

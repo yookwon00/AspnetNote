@@ -11,13 +11,13 @@ namespace AspnetNote.Models
         [Key]
         public int UserNo { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="User Name enter")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="User Id enter")]
         public string UserId { get; set; }
       
-        [Required]
+        [Required(ErrorMessage ="UserPassword enter")]
         public string UserPassword{ get; set; }
     }
 }

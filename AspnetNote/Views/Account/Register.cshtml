@@ -5,16 +5,19 @@
 	<div class="form-group">
 		<label>User ID</label>
 		<input type="text" class="form-control" asp-for="UserId" placeholder="User ID enter"/>
+		<span class="text-danger" asp-validation-for="UserId"></span>
 	</div>
 	
 	<div class="form-group">
 		<label>User Security Number</label>
-		<input type="text" class="form-control" asp-for="UserPassword" placeholder="User security number enter"/>
+		<input type="password" class="form-control" asp-for="UserPassword" placeholder="User security number enter" />
+		<span class="text-danger" asp-validation-for="UserPassword"></span>
 	</div>
 	
 	<div class="form-group">
 		<label>User Name</label>
-		<input type="text" class="form-control" asp-for="UserName" placeholder="User name enter"/>
+		<input type="text" class="form-control" asp-for="UserName" placeholder="User name enter" />
+		<span class="text-danger" asp-validation-for="UserName"></span>
 	</div>
 
 	<div class="form-group">
