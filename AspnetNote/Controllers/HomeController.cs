@@ -15,10 +15,8 @@ namespace AspnetNote.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult LoginSuccess()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 

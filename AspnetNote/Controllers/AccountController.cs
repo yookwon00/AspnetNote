@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AspnetNote.DataContext;
 using AspnetNote.Models;
+using AspnetNote.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AspnetNote.Controllers
@@ -17,7 +18,7 @@ namespace AspnetNote.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(User model)
+        public IActionResult Login(LoginViewModel model)
         {
             //ID, password need
             if (ModelState.IsValid)
@@ -28,11 +29,14 @@ namespace AspnetNote.Controllers
                     var user = db.Users
                         .FirstOrDefault(u => u.UserId.Equals(model.UserId) && 
                         u.UserPassword.Equals(model.UserPassword));
-                    if(user == null)
+                    if (user != null)
                     {
-
+                        // login success
+                        return RedirectToAction("LoginSuccess", "Home"); // go to loginSuccess page
                     }
                 }
+                //login fail
+                ModelState.AddModelError(string.Empty, "Wrong ID or Wrong Password");
             }
             return View(model);
         }
