@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AspnetNote.DataContext;
 using AspnetNote.Models;
 using AspnetNote.ViewModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AspnetNote.Controllers
@@ -32,6 +33,8 @@ namespace AspnetNote.Controllers
                     if (user != null)
                     {
                         // login success
+                        //HttpContext.Session.SetInt32(key, value);
+                        HttpContext.Session.SetInt32("USER_LOGIN_KEY", user.UserNo);
                         return RedirectToAction("LoginSuccess", "Home"); // go to loginSuccess page
                     }
                 }
@@ -39,6 +42,13 @@ namespace AspnetNote.Controllers
                 ModelState.AddModelError(string.Empty, "Wrong ID or Wrong Password");
             }
             return View(model);
+        }
+
+        public IActionResult Logout()
+        {
+            //HttpContext.Session.Clear();
+            HttpContext.Session.Remove("USER_LOGIN_KEY");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
