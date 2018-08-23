@@ -33,6 +33,8 @@ namespace AspnetNote
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //Session
+            services.AddDistributedMemoryCache();
             services.AddSession();
         }
 
@@ -50,6 +52,7 @@ namespace AspnetNote
             }
 
             app.UseHttpsRedirection();
+            // use to Application
             app.UseSession();
             app.UseStaticFiles();
             app.UseCookiePolicy();
