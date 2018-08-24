@@ -21,7 +21,7 @@ namespace AspnetNote.Controllers
             if(HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)
             {
                 //  No Login
-                return RedirectToAction("Login","Account");
+                return RedirectToAction("Login", "Account");
             }
             using (var db = new AspnetNoteDbContext())
             {
