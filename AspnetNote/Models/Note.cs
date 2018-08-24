@@ -12,10 +12,10 @@ namespace AspnetNote.Models
         [Key]
         public int NoteNo { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Enter Title!!")]
         public string NoteTitle { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Enter Content!!")]
         public string NoteContents { get; set; }
 
         [Required]
