@@ -15,7 +15,7 @@ namespace AspnetNote.DataContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=localhost;Initial Catalog=AspnetNote;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=AspnetNote;Integrated Security=True");
 
         }
     }
